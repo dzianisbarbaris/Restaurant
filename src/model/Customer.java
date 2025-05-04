@@ -1,19 +1,21 @@
 package model;
 
 import java.util.Objects;
+import java.util.Random;
 
 public class Customer {
-    private final int customerID;
-    private final String customerName;
-    private final String customerPhone;
+    private static final Random random = new Random();
+    private Integer customerID;
+    private String customerName;
+    private String customerPhone;
 
-    public Customer(int customerID, String customerName, String customerPhone) {
-        this.customerID = customerID;
+    public Customer(String customerName, String customerPhone) {
+        this.customerID = random.nextInt(10000, 99999);
         this.customerName = customerName;
         this.customerPhone = customerPhone;
     }
 
-    public int getCustomerID() {
+    public Integer getCustomerID() {
         return customerID;
     }
 
@@ -28,7 +30,7 @@ public class Customer {
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Customer customer)) return false;
-        return customerID == customer.customerID;
+        return Objects.equals(customerID, customer.customerID);
     }
 
     @Override

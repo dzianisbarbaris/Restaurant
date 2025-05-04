@@ -40,22 +40,16 @@ public class MenuItem {
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof MenuItem menuItem)) return false;
-        return itemId == menuItem.itemId;
+        return Objects.equals(itemName, menuItem.itemName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(itemId);
+        return Objects.hashCode(itemName);
     }
 
     @Override
     public String toString() {
-        return "MenuItem{" +
-                "itemId=" + itemId +
-                ", itemName='" + itemName + '\'' +
-                ", itemPrice=" + itemPrice +
-                ", category=" + category +
-                ", availability=" + availability +
-                '}';
+        return itemName + ": Стоимость " + itemPrice + " руб.\n";
     }
 }

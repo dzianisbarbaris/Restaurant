@@ -1,25 +1,26 @@
 package model;
 
+import builder.OrderBuilder;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Order {
-    private final int orderID;
-    private final Customer customer;
-    private final List<MenuItem> listOfDishes;
-    private final Status orderStatus;
-    private final double orderAmount;
+public class Order{
+    private Integer orderId;
+    private Customer customer;
+    private List<MenuItem> listOfDishes = new ArrayList<>();
+    private Status orderStatus;
+    private double orderAmount;
 
-    public Order(int orderID, Customer customer, List<MenuItem> listOfDishes, Status orderStatus, double orderAmount) {
-        this.orderID = orderID;
-        this.customer = customer;
-        this.listOfDishes = listOfDishes;
-        this.orderStatus = orderStatus;
-        this.orderAmount = orderAmount;
+    public Order(OrderBuilder orderBuilder) {
+        this.orderId = orderBuilder.getOrderId();
+        this.customer = orderBuilder.getCustomer();
+        this.listOfDishes = orderBuilder.getListOfDishes();
     }
 
-    public int getOrderID() {
-        return orderID;
+    public Integer getOrderId() {
+        return orderId;
     }
 
     public Customer getCustomer() {
@@ -39,24 +40,11 @@ public class Order {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (!(o instanceof Order order)) return false;
-        return orderID == order.orderID;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(orderID);
-    }
-
-    @Override
     public String toString() {
-        return "Order{" +
-                "orderID=" + orderID +
-                ", customer=" + customer +
+        return "Номер заказа " + orderId + " {customer=" + customer +
                 ", listOfDishes=" + listOfDishes +
                 ", orderStatus=" + orderStatus +
                 ", orderAmount=" + orderAmount +
-                '}';
+                "}\n";
     }
 }
