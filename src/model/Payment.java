@@ -3,11 +3,12 @@ package model;
 import java.util.Objects;
 
 public class Payment {
-    private final int paymentId;
-    private final double paymentAmount;
-    private final PaymentMethod paymentMethod;
+    private static Integer paymentId = 0;
+    private static double paymentAmount;
+    private static PaymentMethod paymentMethod;
 
-    public Payment(int paymentId, double paymentAmount, PaymentMethod paymentMethod) {
+    public Payment(double paymentAmount, PaymentMethod paymentMethod) {
+        paymentId++;
         this.paymentId = paymentId;
         this.paymentAmount = paymentAmount;
         this.paymentMethod = paymentMethod;

@@ -8,10 +8,10 @@ import java.util.Random;
 
 public class MenuItemFactory {
     private static final Random random = new Random();
-    private static final List<String> drinkNames = List.of("Сок", "Кока-кола", "Пиво", "Минеральная вода", "Квас");
-    private static final List<String> mainDishNames = List.of("Пюрешка с котлеткой", "Плов", "Лазанья", "Рис с овощами", "Пицца");
-    private static final List<String> dessertNames = List.of("Круассан", "Запеканка", "Вафли", "Пирог венский", "Пирожное заварное");
-    private static final List<String> snackNames = List.of("Чипсы", "Наггетсы", "Крылышки барбекю", "Гренки чесночные", "Начос");
+    private static final List<String> drinkNames = List.of("Сок", "Кока-кола", "Пиво", "Боржоми", "Квас");
+    private static final List<String> mainDishNames = List.of("Пюре", "Плов", "Лазанья", "Рис", "Пицца");
+    private static final List<String> dessertNames = List.of("Круассан", "Запеканка", "Вафли", "Пирог", "Пирожное");
+    private static final List<String> snackNames = List.of("Чипсы", "Наггетсы", "Крылышки", "Гренки", "Начос");
 
 
     public MenuItemFactory() {

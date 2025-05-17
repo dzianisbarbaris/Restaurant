@@ -15,7 +15,7 @@ public class OrderBuilder {
     private Status orderStatus;
     private double orderAmount;
 
-    public OrderBuilder(){
+    public OrderBuilder() {
         orderId++;
         this.orderId = orderId;
     }
@@ -27,6 +27,11 @@ public class OrderBuilder {
 
     public OrderBuilder listOfDishes(List<MenuItem> listOfDishes) {
         this.listOfDishes = listOfDishes;
+        return this;
+    }
+
+    public OrderBuilder orderStatus(Status status) {
+        this.orderStatus = status;
         return this;
     }
 
@@ -46,5 +51,8 @@ public class OrderBuilder {
         return listOfDishes;
     }
 
+    public Status getOrderStatus() {
+        return orderStatus;
+    }
 
 }

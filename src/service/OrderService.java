@@ -2,39 +2,31 @@ package service;
 
 
 import builder.OrderBuilder;
-import exception.MenuItemNotFoundException;
-import model.Customer;
-import model.MenuItem;
-import model.Order;
+import model.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class OrderService {
-    private final List<Order> orders = new ArrayList<>();
-    private final List<MenuItem> listOfOrderedDishes = new ArrayList<>();
-    private MenuService menuService = new MenuService();
 
-    public Order createOrder(Customer customer){
-        Order order = new OrderBuilder().customer(customer).listOfDishes(listOfOrderedDishes).build();
-        orders.add(order);
-        System.out.println("Ваш заказ: " + order);
-        return order;
+    public Order createOrder(Customer customer) {
+        return new OrderBuilder().customer(customer).orderStatus(Status.CREATED).build();
     }
 
-    public void addMenuItemsToOrder(String itemName){
-        try {
-            listOfOrderedDishes.add(menuService.findItem(itemName));
-        } catch (MenuItemNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+    public void addMenuItemToOrder(Order order, MenuItem menuItem) {
+        order.getListOfDishes().add(menuItem);
     }
 
-    public void removeMenuItemsFromOrder(){
-
+    public void removeMenuItemsFromOrder(Order order, MenuItem menuItem) {
+        order.getListOfDishes().remove(menuItem);
     }
 
-    public void watchAllOrders(){
-        System.out.println(orders);
+    public void recalculateOrderAmount(Order order) {
+        double orderAmount = order.getListOfDishes().stream().mapToDouble(MenuItem::getItemPrice).sum();
+        order.setOrderAmount(orderAmount);
     }
+
 }

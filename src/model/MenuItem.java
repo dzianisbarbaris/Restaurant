@@ -50,6 +50,6 @@ public class MenuItem {
 
     @Override
     public String toString() {
-        return itemName + ": Стоимость " + itemPrice + " руб.\n";
+        return itemName + ": Стоимость " + itemPrice + " руб.";
     }
 }

@@ -9,10 +9,10 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class MenuService {
-    private final Set<MenuItem> menuItems = new HashSet<>();
-    private final MenuItemFactory itemFactory = new MenuItemFactory();
+    private static final Set<MenuItem> menuItems = new LinkedHashSet<>();
+    private static final MenuItemFactory itemFactory = new MenuItemFactory();
 
-    public void createMenuForDay(){
+    public void createTodayMenu() {
         addItem(Category.MAIN_DISH);
         addItem(Category.MAIN_DISH);
         addItem(Category.MAIN_DISH);
@@ -27,8 +27,12 @@ public class MenuService {
         addItem(Category.DESSERT);
     }
 
-    public void watchMenuItems(){
-        System.out.println(menuItems);
+    public void printMenuItems() {
+        int j = 1;
+        for (MenuItem menuItem : menuItems) {
+            System.out.println("Блюдо № " + j + ": " + menuItem);
+            j++;
+        }
     }
 
     public void addItem(Category category) {
@@ -39,12 +43,12 @@ public class MenuService {
         menuItems.remove(item);
     }
 
-    public MenuItem findItem(String menuItemName) throws MenuItemNotFoundException {
-        Optional<MenuItem> optionalItem = menuItems.stream().filter(menuItem -> menuItem.getItemName().equals(menuItemName)).findFirst();
-        if (optionalItem.isEmpty()){
-            throw new MenuItemNotFoundException("Блюдо " + menuItemName + " не найдено");
+    public MenuItem findItem(String itemName) throws MenuItemNotFoundException {
+        Optional<MenuItem> orderedMenuItem = menuItems.stream().filter(item -> item.getItemName().equalsIgnoreCase(itemName)).findFirst();
+        if (orderedMenuItem.isEmpty()) {
+            throw new MenuItemNotFoundException("Блюдо " + itemName + " не найдено в меню!");
         }
-        return optionalItem.get();
+        return orderedMenuItem.get();
     }
-
 }
+

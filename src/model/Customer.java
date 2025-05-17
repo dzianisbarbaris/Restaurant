@@ -6,8 +6,8 @@ import java.util.Random;
 public class Customer {
     private static final Random random = new Random();
     private Integer customerID;
-    private String customerName;
-    private String customerPhone;
+    private final String customerName;
+    private final String customerPhone;
 
     public Customer(String customerName, String customerPhone) {
         this.customerID = random.nextInt(10000, 99999);
