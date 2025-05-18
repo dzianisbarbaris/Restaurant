@@ -1,7 +1,6 @@
-package service;
-
-import exception.OrderAlreadyPaidException;
-import model.*;
+package by.dzianisbarbaris.service;
+import by.dzianisbarbaris.model.*;
+import by.dzianisbarbaris.exception.OrderAlreadyPaidException;
 
 public class PaymentService {
 

@@ -1,4 +1,4 @@
-package exception;
+package by.dzianisbarbaris.exception;
 
 public class OrderAlreadyPaidException extends Exception {
     public OrderAlreadyPaidException(String message) {

@@ -1,15 +1,15 @@
-package model;
+package by.dzianisbarbaris.model;
 
 import java.util.Objects;
 
 public class Payment {
-    private static Integer paymentId = 0;
-    private static double paymentAmount;
-    private static PaymentMethod paymentMethod;
+    private static int paymentCounter = 0;
+    private final int paymentId;
+    private final double paymentAmount;
+    private final PaymentMethod paymentMethod;
 
     public Payment(double paymentAmount, PaymentMethod paymentMethod) {
-        paymentId++;
-        this.paymentId = paymentId;
+        this.paymentId = ++paymentCounter;
         this.paymentAmount = paymentAmount;
         this.paymentMethod = paymentMethod;
     }

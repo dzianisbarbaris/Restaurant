@@ -1,30 +1,19 @@
-package service;
+package by.dzianisbarbaris.service;
 
-import exception.MenuItemNotFoundException;
-import factory.MenuItemFactory;
-import model.Category;
-import model.MenuItem;
+import by.dzianisbarbaris.exception.MenuItemNotFoundException;
+import by.dzianisbarbaris.factory.MenuItemFactory;
+import by.dzianisbarbaris.model.Category;
+import by.dzianisbarbaris.model.MenuItem;
 
 import java.util.*;
-import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class MenuService {
-    private static final Set<MenuItem> menuItems = new LinkedHashSet<>();
-    private static final MenuItemFactory itemFactory = new MenuItemFactory();
+    private final Set<MenuItem> menuItems = new LinkedHashSet<>();
 
     public void createTodayMenu() {
-        addItem(Category.MAIN_DISH);
-        addItem(Category.MAIN_DISH);
-        addItem(Category.MAIN_DISH);
-        addItem(Category.SNACK);
-        addItem(Category.SNACK);
-        addItem(Category.SNACK);
-        addItem(Category.DRINK);
-        addItem(Category.DRINK);
-        addItem(Category.DRINK);
-        addItem(Category.DESSERT);
-        addItem(Category.DESSERT);
-        addItem(Category.DESSERT);
+        Arrays.stream(Category.values()).forEach(category -> IntStream.range(0,3)
+                .forEach(i -> menuItems.add(MenuItemFactory.next(category))));
     }
 
     public void printMenuItems() {
@@ -36,7 +25,7 @@ public class MenuService {
     }
 
     public void addItem(Category category) {
-        menuItems.add(itemFactory.next(category));
+        menuItems.add(MenuItemFactory.next(category));
     }
 
     public void removeItem(MenuItem item) {

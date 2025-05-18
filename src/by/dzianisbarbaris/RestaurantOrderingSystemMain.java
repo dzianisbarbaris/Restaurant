@@ -1,4 +1,6 @@
-import ui.ConsoleMenu;
+package by.dzianisbarbaris;
+
+import by.dzianisbarbaris.ui.ConsoleMenu;
 
 public class RestaurantOrderingSystemMain {
     public static void main(String[] args) {

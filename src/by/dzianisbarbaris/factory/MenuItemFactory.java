@@ -1,7 +1,7 @@
-package factory;
+package by.dzianisbarbaris.factory;
 
-import model.Category;
-import model.MenuItem;
+import by.dzianisbarbaris.model.Category;
+import by.dzianisbarbaris.model.MenuItem;
 
 import java.util.List;
 import java.util.Random;
@@ -14,10 +14,10 @@ public class MenuItemFactory {
     private static final List<String> snackNames = List.of("Чипсы", "Наггетсы", "Крылышки", "Гренки", "Начос");
 
 
-    public MenuItemFactory() {
+    private MenuItemFactory() {
     }
 
-    public MenuItem next(Category category) {
+    public static MenuItem next(Category category) {
         if (category == Category.DRINK) {
             int itemID = random.nextInt(1000, 1999);
             String drinkName = drinkNames.get(random.nextInt(drinkNames.size()));
@@ -43,36 +43,6 @@ public class MenuItemFactory {
             return new MenuItem(itemID, snackName, itemPrice, Category.SNACK, true);
         }
     }
-
-
-    /*private static MenuItem nextDrink() {
-        int itemID = random.nextInt(1000, 1999);
-        String drinkName = drinkNames.get(random.nextInt(drinkNames.size()));
-        double itemPrice = random.nextDouble(5, 10);
-        return new MenuItem(itemID, drinkName, itemPrice, Category.DRINK, true);
-    }
-
-    private static MenuItem nextMainDish() {
-        int itemID = random.nextInt(2000, 2999);
-        String dishName = mainDishNames.get(random.nextInt(mainDishNames.size()));
-        double itemPrice = random.nextDouble(15, 20);
-        return new MenuItem(itemID, dishName, itemPrice, Category.MAIN_DISH, true);
-    }
-
-    private static MenuItem nextDessert() {
-        int itemID = random.nextInt(3000, 3999);
-        String dessertName = dessertNames.get(random.nextInt(dessertNames.size()));
-        double itemPrice = random.nextDouble(8, 15);
-        return new MenuItem(itemID, dessertName, itemPrice, Category.DESSERT, true);
-    }
-
-    private static MenuItem nextSnack() {
-        int itemID = random.nextInt(4000, 4999);
-        String snackName = snackNames.get(random.nextInt(snackNames.size()));
-        double itemPrice = random.nextDouble(10, 20);
-        return new MenuItem(itemID, snackName, itemPrice, Category.SNACK, true);
-    }*/
-
 }
 
 

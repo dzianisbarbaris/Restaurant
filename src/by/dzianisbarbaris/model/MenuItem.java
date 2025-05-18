@@ -1,4 +1,4 @@
-package model;
+package by.dzianisbarbaris.model;
 
 import java.util.Objects;
 

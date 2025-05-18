@@ -1,10 +1,8 @@
-package model;
+package by.dzianisbarbaris.model;
 
-import builder.OrderBuilder;
+import by.dzianisbarbaris.builder.OrderBuilder;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class Order{
     private final Integer orderId;

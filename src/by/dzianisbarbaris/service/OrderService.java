@@ -1,14 +1,9 @@
-package service;
-
-
-import builder.OrderBuilder;
-import model.*;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+package by.dzianisbarbaris.service;
+import by.dzianisbarbaris.builder.OrderBuilder;
+import by.dzianisbarbaris.model.Customer;
+import by.dzianisbarbaris.model.MenuItem;
+import by.dzianisbarbaris.model.Order;
+import by.dzianisbarbaris.model.Status;
 
 public class OrderService {
 

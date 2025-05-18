@@ -1,4 +1,4 @@
-package exception;
+package by.dzianisbarbaris.exception;
 
 public class PaymentFailedException extends Exception {
     public PaymentFailedException(String message) {

@@ -1,11 +1,11 @@
-package model;
+package by.dzianisbarbaris.model;
 
 import java.util.Objects;
 import java.util.Random;
 
 public class Customer {
     private static final Random random = new Random();
-    private Integer customerID;
+    private final Integer customerID;
     private final String customerName;
     private final String customerPhone;
 

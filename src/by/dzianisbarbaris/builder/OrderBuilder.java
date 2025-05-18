@@ -1,23 +1,23 @@
-package builder;
+package by.dzianisbarbaris.builder;
 
-import model.Customer;
-import model.MenuItem;
-import model.Order;
-import model.Status;
+import by.dzianisbarbaris.model.Customer;
+import by.dzianisbarbaris.model.MenuItem;
+import by.dzianisbarbaris.model.Order;
+import by.dzianisbarbaris.model.Status;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class OrderBuilder {
-    private static Integer orderId = 0;
+    private static int orderIdCounter = 0;
+    private final int orderId;
     private Customer customer;
     private List<MenuItem> listOfDishes = new ArrayList<>();
     private Status orderStatus;
     private double orderAmount;
 
     public OrderBuilder() {
-        orderId++;
-        this.orderId = orderId;
+        this.orderId = ++orderIdCounter;
     }
 
     public OrderBuilder customer(Customer customer) {

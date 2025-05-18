@@ -1,4 +1,4 @@
-package config;
+package by.dzianisbarbaris.config;
 
 public class PaymentConfig {
     private static final PaymentConfig INSTANCE = new PaymentConfig();

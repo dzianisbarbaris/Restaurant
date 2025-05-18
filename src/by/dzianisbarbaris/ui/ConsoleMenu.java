@@ -1,21 +1,19 @@
-package ui;
-
-import exception.MenuItemNotFoundException;
-import exception.OrderAlreadyPaidException;
-import model.*;
-import service.MenuService;
-import service.OrderService;
-import service.PaymentService;
-
+package by.dzianisbarbaris.ui;
+import by.dzianisbarbaris.exception.MenuItemNotFoundException;
+import by.dzianisbarbaris.exception.OrderAlreadyPaidException;
+import by.dzianisbarbaris.model.*;
+import by.dzianisbarbaris.service.MenuService;
+import by.dzianisbarbaris.service.OrderService;
+import by.dzianisbarbaris.service.PaymentService;
 import java.util.*;
 
 public class ConsoleMenu {
     private static final Scanner scanner = new Scanner(System.in);
-    private static final OrderService orderService = new OrderService();
-    private static final MenuService menuService = new MenuService();
-    private static final PaymentService paymentService = new PaymentService();
-    private static Order order;
-    private static Map<Order, Payment> listOfOrders = new HashMap<>();
+    private final OrderService orderService = new OrderService();
+    private final MenuService menuService = new MenuService();
+    private final PaymentService paymentService = new PaymentService();
+    private Order order;
+    private final Map<Order, Payment> listOfOrders = new HashMap<>();
 
     public void start() {
         menuService.createTodayMenu();

@@ -63,7 +63,7 @@
 - `model`
 - `service`
 - `factory`
-- `builder`
+- `by.dzianisbarbaris.builder`
 - `config`
 - `exception`
 - `ui` ( для консольного меню )
@@ -118,7 +118,7 @@
 - Фабрика десертов.
 - Фабрика закусок.
 
-### `builder/OrderBuilder`
+### `by.dzianisbarbaris.builder/OrderBuilder`
 - Указать покупателя.
 - Добавить блюда.
 - Собрать заказ.
